@@ -8,21 +8,24 @@
 
 #SE PUEDE MEJORAR MUCHO
 
-grade = int(input("Agrega la calificación del alumno (0-100): "))
 
 while True:
-    if grade < 0 or grade > 100:
-        while grade < 0 or grade > 100:
+    try:
+        grade = int(input("Agrega la calificación del alumno (0-100): "))
+        if grade < 0 or grade > 100:
             print ("Calificación inválida. Ingrese otra.")
-            grade = int(input("Agrega la calificación del alumno (0-100): "))
-    else:
-        if grade >= 60:
-            print ("Pasaste")
-            break
         else:
-            print ("Reprobaste")
+            if grade < 60:
+                print ("Reprobaste")
+            elif grade < 70:
+                print ("Pasaste")
+            elif grade < 90:
+                print ("Muy bien")
+            else:
+                print ("EXCELENTE")  
             break
-        
+    except ValueError:
+        print("Entrada inválida. Ingrese un número.")
   
 
 
